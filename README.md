@@ -46,15 +46,3 @@ A web-based Pharmacy application built with Angular for the frontend and Node.js
 - `server.js` – Express server setup.
 
 ---
-
-## Getting Started
-
-### Prerequisites
-- Node.js and npm installed
-- Angular CLI installed
-- MongoDB installed (if using backend database)
-
-### Install Frontend Dependencies
-```bash
-cd frontend
-npm install
