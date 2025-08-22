@@ -19,11 +19,7 @@ A web-based Pharmacy application built with Angular for the frontend and Node.js
 
 ---
 
-## Screenshots
 
-*(You can insert screenshots of your app here)*
-
----
 
 ## Project Structure
 
