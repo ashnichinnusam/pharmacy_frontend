@@ -1,0 +1,24 @@
+<h2>Featured Products</h2>
+<div class="product-grid">
+  <div class="product-card" *ngFor="let product of featuredProducts">
+    <a [routerLink]="['/product', product._id]">
+      <img [src]="product.image" [alt]="product.name" />
+      <h3>{{ product.name }}</h3>
+      <p>${{ product.price }}</p>
+    </a>
+  </div>
+</div>
+
+<h2>New Arrivals</h2>
+<div class="product-grid">
+  <div class="product-card" *ngFor="let product of newArrivals">
+    <a [routerLink]="['/product', product._id]">
+      <img [src]="product.image" [alt]="product.name" />
+      <h3>{{ product.name }}</h3>
+      <p>${{ product.price }}</p>
+    </a>
+  </div>
+</div>
+
+
+
