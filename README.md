@@ -1,59 +1,64 @@
-# Pharmacy
+# Pharmacy E-commerce Web Application
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 18.
+A web-based Pharmacy application built with Angular for the frontend and Node.js/Express for the backend. This project allows users to view products, add them to the cart, and perform user authentication with JWT.  
 
-## Development server
+---
 
-To start a local development server, run:
+## Features
 
+### User Functionality
+- User registration and login with JWT authentication.
+- View featured products and new arrivals on the home page.
+- Browse product list and view product details.
+- Add, remove, and update product quantities in the shopping cart.
+- Local storage integration for cart persistence.
+
+### Admin Functionality (Future)
+- Add, edit, and delete products.
+- Manage orders and users.
+
+---
+
+## Screenshots
+
+*(You can insert screenshots of your app here)*
+
+---
+
+## Project Structure
+
+### Frontend (Angular)
+- **Components**
+  - `HomeComponent` – Displays featured products and new arrivals.
+  - `ProductListComponent` – Shows all products in a grid.
+  - `ProductDetailComponent` – Shows details for a single product.
+  - `CartComponent` – Shows cart items and allows modifications.
+  - `LoginComponent` – User login form.
+  - `RegisterComponent` – User registration form.
+- **Services**
+  - `AuthService` – Handles login, registration, and JWT token storage.
+  - `ProductService` – Manages product data (local or via backend).
+  - `CartService` – Manages cart operations and local storage.
+- **Guards**
+  - `AuthGuard` – Protects routes requiring authentication.
+- **Interceptor**
+  - `JwtInterceptor` – Attaches JWT token to API requests.
+
+### Backend (Node.js / Express)
+- `routes/product.js` – API routes for products.
+- `models/Product.js` – Product schema.
+- `server.js` – Express server setup.
+
+---
+
+## Getting Started
+
+### Prerequisites
+- Node.js and npm installed
+- Angular CLI installed
+- MongoDB installed (if using backend database)
+
+### Install Frontend Dependencies
 ```bash
-ng serve
-```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+cd frontend
+npm install
