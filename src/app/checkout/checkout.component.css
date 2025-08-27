@@ -44,3 +44,16 @@ button {
 button:hover {
   background: #218838;
 }
+
+
+.button-group {
+  display: flex;
+  gap: 15px; /* Space between the two buttons */
+  margin-top: 15px;
+}
+
+
+
+button.secondary-btn {
+  background-color: #555; /* Different color for the back button */
+}

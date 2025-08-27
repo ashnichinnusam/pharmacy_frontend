@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 import { CartService } from '../services/cart.service';
 
 @Component({
@@ -19,10 +20,11 @@ export class CheckoutComponent {
   };
 
   paymentMethod = 'cod';
+  upiId: string = '';
   cartItems: any[] = [];
   totalAmount: number = 0;
 
-  constructor(private cartService: CartService) {
+  constructor(private cartService: CartService, private router: Router) {
     this.cartItems = this.cartService.getItems();
     this.calculateTotal();
   }
@@ -39,9 +41,21 @@ export class CheckoutComponent {
       return;
     }
 
-    // Later: Send this data to backend API
+    if (this.paymentMethod === 'upi' && !this.upiId) {
+      alert('Please enter your UPI ID to proceed with UPI payment');
+      return;
+    }
+
     alert('Order placed successfully!');
     this.cartService.clearCart();
+    this.router.navigate(['/']); // Redirect to home
+  }
+
+  goHome() {
+    this.router.navigate(['/']);
   }
 }
+
+
+
 

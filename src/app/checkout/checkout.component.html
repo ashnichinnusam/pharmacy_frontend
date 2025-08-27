@@ -25,10 +25,23 @@
       <input type="radio" [(ngModel)]="paymentMethod" name="payment" value="cod" /> Cash on Delivery
     </label>
     <label>
-      <input type="radio" [(ngModel)]="paymentMethod" name="payment" value="online" /> Online Payment
+      <input type="radio" [(ngModel)]="paymentMethod" name="payment" value="upi" /> UPI Payment
     </label>
 
-    <button (click)="placeOrder()">Place Order</button>
+    <!-- Show UPI section dynamically -->
+    <div *ngIf="paymentMethod === 'upi'" class="upi-section">
+      <h4>Enter your UPI ID</h4>
+      <input type="text" placeholder="example@upi" [(ngModel)]="upiId" name="upiId" />
+      <p>OR scan the QR code below:</p>
+      <img src="assets/upi-qr-placeholder.png" alt="UPI QR Code" width="150" />
+    </div>
+
+    <div class="button-group">
+      <button (click)="placeOrder()">Place Order</button>
+      <button (click)="goHome()" class="secondary-btn">Back to Home</button>
+    </div>
+
   </div>
 </div>
+
 
