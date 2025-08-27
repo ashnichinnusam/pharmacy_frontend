@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CartService, CartItem } from '../services/cart.service';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -12,7 +12,7 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent {
-  constructor(public cartService: CartService) {}
+  constructor(public cartService: CartService, private router: Router) {}
 
   updateQuantity(item: CartItem, quantity: number) {
     if (quantity <= 0) return;
@@ -22,5 +22,10 @@ export class CartComponent {
   removeItem(item: CartItem) {
     this.cartService.removeFromCart(item.product._id);
   }
+
+  goToCheckout() {
+    this.router.navigate(['/checkout']);
+  }
 }
+
 

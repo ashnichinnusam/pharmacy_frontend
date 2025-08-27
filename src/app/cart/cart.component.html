@@ -6,7 +6,12 @@
       <p>Price: ${{ item.product.price }}</p>
       <label>
         Quantity:
-        <input type="number" [(ngModel)]="item.quantity" (change)="updateQuantity(item, item.quantity)" min="1" />
+        <input
+          type="number"
+          [(ngModel)]="item.quantity"
+          (change)="updateQuantity(item, item.quantity)"
+          min="1"
+        />
       </label>
       <button (click)="removeItem(item)">Remove</button>
     </div>
@@ -15,6 +20,9 @@
   <div class="cart-summary">
     <p>Total Items: {{ cartService.getTotalItems() }}</p>
     <p>Total Price: ${{ cartService.getTotalPrice() }}</p>
+
+    <!-- Place Order Button -->
+    <button (click)="goToCheckout()">Place Order</button>
   </div>
 </div>
 
