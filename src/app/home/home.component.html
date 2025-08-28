@@ -1,24 +1,76 @@
-<h2>Featured Products</h2>
-<div class="product-grid">
-  <div class="product-card" *ngFor="let product of featuredProducts">
-    <a [routerLink]="['/product', product._id]">
-      <img [src]="product.image" [alt]="product.name" />
-      <h3>{{ product.name }}</h3>
-      <p>${{ product.price }}</p>
-    </a>
-  </div>
-</div>
 
-<h2>New Arrivals</h2>
-<div class="product-grid">
-  <div class="product-card" *ngFor="let product of newArrivals">
-    <a [routerLink]="['/product', product._id]">
-      <img [src]="product.image" [alt]="product.name" />
-      <h3>{{ product.name }}</h3>
-      <p>${{ product.price }}</p>
-    </a>
+
+<!-- Hero Section -->
+<section class="hero-section py-5 text-center">
+  <div class="container">
+    <h1 class="display-6 fw-bold mb-3 animate-text">
+      Trusted Pharmacy at Your Doorstep
+    </h1>
+    <p class="lead text-muted">
+      Get medicines, health products, and essentials delivered quickly and safely. 100% genuine products & verified pharmacists.
+    </p>
+    <a href="#shop" class="btn btn-primary btn-lg mt-3 rounded-pill">Start Shopping</a>
   </div>
-</div>
+</section>
+
+<!-- Featured Products -->
+<section id="shop" class="container my-5">
+  <h2 class="text-center mb-4">Best Selling Medicines</h2>
+  <div class="row g-4">
+    <div class="col-md-3" *ngFor="let product of featuredProducts">
+      <div class="card h-100 shadow-sm border-0">
+        <a [routerLink]="['/product', product._id]" class="text-decoration-none text-dark">
+          <img [src]="product.image" class="card-img-top p-3" alt="{{ product.name }}">
+          <div class="card-body text-center">
+            <h6 class="card-title">{{ product.name }}</h6>
+            <p class="fw-bold text-primary">₹{{ product.price }}</p>
+            <button class="btn btn-outline-primary btn-sm rounded-pill mt-2">Add to Cart</button>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="py-5" style="background-color: #f0f4f7;">
+  <div class="container text-center">
+    <h2 class="fw-bold mb-3">About MediCare</h2>
+    <p class="text-muted mx-auto" style="max-width: 600px;">
+      MediCare is your trusted online pharmacy for genuine medicines, wellness products, and healthcare essentials.
+      We ensure fast delivery, verified prescriptions, and affordable prices for all your medical needs.
+    </p>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="py-5">
+  <div class="container text-center">
+    <h2 class="fw-bold mb-3">Contact Us</h2>
+    <p class="text-muted mb-4">Have questions? We're here to help you 24/7.</p>
+    <form class="mx-auto" style="max-width: 500px;">
+      <div class="mb-3">
+        <input type="text" class="form-control" placeholder="Your Name">
+      </div>
+      <div class="mb-3">
+        <input type="email" class="form-control" placeholder="Your Email">
+      </div>
+      <div class="mb-3">
+        <textarea class="form-control" rows="4" placeholder="Your Message"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary rounded-pill">Send Message</button>
+    </form>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="text-center py-4 text-muted" style="background-color: #f8f9fa;">
+  © 2025 MediCare Pharmacy. All rights reserved.
+</footer>
+
+
+
+
 
 
 

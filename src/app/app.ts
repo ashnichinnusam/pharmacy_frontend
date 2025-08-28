@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet, RouterLink, RouterLinkActive, Router } from '@angular/router';
-import { CommonModule, NgIf } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { AuthService } from './services/auth.service';
 
 @Component({
@@ -8,35 +8,38 @@ import { AuthService } from './services/auth.service';
   standalone: true,
   imports: [CommonModule, RouterOutlet, RouterLink, RouterLinkActive], 
   template: `
-    <header>
-      <nav class="navbar">
-        <div class="logo">
-          <a routerLink="">Pharmacy</a>
-        </div>
-        <ul class="nav-links">
-          <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a></li>
-          <li><a routerLink="/products" routerLinkActive="active">Products</a></li>
-          <li><a routerLink="/cart" routerLinkActive="active">Cart</a></li>
+  <nav class="navbar navbar-expand-lg navbar-light shadow-sm" style="background-color: #f8f9fa;">
+    <div class="container">
+      <a class="navbar-brand fw-bold" routerLink="/">MediCare</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#shop">Shop</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" routerLink="/products">Products</a></li>
+          <li class="nav-item"><a class="nav-link" routerLink="/cart">Cart</a></li>
 
-          <ng-container *ngIf="!authService.isLoggedIn(); else loggedIn">
-            <li><a routerLink="/login" routerLinkActive="active">Login</a></li>
-            <li><a routerLink="/register" routerLinkActive="active">Register</a></li>
+          <!-- Show Login & Register when NOT logged in -->
+          <ng-container *ngIf="!authService.isLoggedIn(); else loggedInLinks">
+            <li class="nav-item"><a class="nav-link" routerLink="/login">Login</a></li>
+            <li class="nav-item"><a class="nav-link" routerLink="/register">Sign Up</a></li>
           </ng-container>
 
-          <ng-template #loggedIn>
-            <li><a href="#" (click)="logout()">Logout</a></li>
+          <!-- Show Logout when logged in -->
+          <ng-template #loggedInLinks>
+            <li class="nav-item">
+              <a class="nav-link" href="#" (click)="logout()">Logout</a>
+            </li>
           </ng-template>
         </ul>
-      </nav>
-    </header>
+      </div>
+    </div>
+  </nav>
 
-    <main class="main-container">
-      <router-outlet></router-outlet>
-    </main>
-
-    <footer>
-      <p>&copy; 2025 Pharmacy E-commerce</p>
-    </footer>
+  <router-outlet></router-outlet>
   `,
   styleUrls: ['./app.css']
 })
@@ -48,6 +51,7 @@ export class AppComponent {
     this.router.navigate(['/login']);
   }
 }
+
 
 
 

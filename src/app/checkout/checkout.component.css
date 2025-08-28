@@ -1,59 +1,182 @@
+/* Container */
 .checkout-container {
   display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  max-width: 900px;
-  margin: 20px auto;
+  flex-wrap: wrap; /* Makes it responsive */
+  justify-content: center;
+  gap: 30px;
+  max-width: 1000px;
+  margin: 40px auto;
   padding: 20px;
+  background: #f5f5f5;
+  border-radius: 12px;
 }
 
+/* Sections */
 .billing-section,
 .order-summary {
-  flex: 1;
+  flex: 1 1 400px; /* flexible for responsiveness */
   background: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
 }
 
+/* Section headings */
+.billing-section h3,
+.order-summary h3 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #333;
+  border-bottom: 2px solid #ff6f61;
+  padding-bottom: 5px;
+}
+
+/* Inputs */
 .billing-section input,
 .billing-section textarea {
   width: 100%;
-  margin-bottom: 10px;
-  padding: 10px;
+  margin-bottom: 15px;
+  padding: 12px;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border 0.3s;
 }
 
+.billing-section input:focus,
+.billing-section textarea:focus {
+  border-color: #ff6f61;
+  outline: none;
+}
+
+/* Order Summary Items */
 .order-item {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
+  font-size: 1rem;
+  color: #555;
 }
 
-button {
-  width: 100%;
-  padding: 12px;
-  background: #28a745;
-  color: white;
+.order-summary hr {
+  margin: 15px 0;
   border: none;
-  border-radius: 5px;
+  border-top: 1px solid #ddd;
+}
+
+.order-summary h4 {
+  font-size: 1.2rem;
+  margin-top: 10px;
+  color: #333;
+}
+
+/* Payment Options */
+.order-summary label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 8px 0;
   cursor: pointer;
 }
 
-button:hover {
-  background: #218838;
+.upi-section {
+  margin-top: 15px;
+  text-align: center;
 }
 
+.upi-section input {
+  width: 70%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
 
+/* Buttons */
 .button-group {
   display: flex;
-  gap: 15px; /* Space between the two buttons */
-  margin-top: 15px;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.button-group button {
+  flex: 1;
+  padding: 14px 0;
+  font-size: 1rem;
+  border-radius: 8px;
+  transition: all 0.3s;
+}
+
+.button-group button:hover {
+  transform: translateY(-2px);
+}
+
+/* Primary Button */
+.button-group button:first-child {
+  background-color: #28a745;
+  color: white;
+  border: none;
+}
+
+.button-group button:first-child:hover {
+  background-color: #218838;
+}
+
+/* Secondary Button */
+.button-group button.secondary-btn {
+  background-color: #555;
+  color: white;
+}
+
+.button-group button.secondary-btn:hover {
+  background-color: #333;
+}
+
+/* Checkout Page Heading */
+h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #ff6f61;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  position: relative;
+  overflow: hidden;
+  animation: slideHeading 6s linear infinite;
+}
+
+/* Animate heading */
+@keyframes slideHeading {
+  0% { transform: translateX(-100%); }
+  50% { transform: translateX(0); }
+  100% { transform: translateX(100%); }
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .checkout-container {
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  .billing-section,
+  .order-summary {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .upi-section input {
+    width: 100%;
+  }
 }
 
 
-
-button.secondary-btn {
-  background-color: #555; /* Different color for the back button */
+.checkout-title {
+  font-size: 1.8rem;       /* subtle, readable size */
+  font-weight: 600;
+  color: #ff6f61;
+  margin-bottom: 30px;     /* space below heading */
+  text-align: left;        /* align to the left side */
+  position: static;        /* ensures it stays still */
+  animation: none;          /* remove any animation */
 }
+

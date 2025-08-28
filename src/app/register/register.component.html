@@ -1,9 +1,27 @@
-<h2>Register</h2>
-<form (ngSubmit)="onSubmit()">
-  <input type="text" placeholder="Name" [(ngModel)]="user.name" name="name" required />
-  <input type="email" placeholder="Email" [(ngModel)]="user.email" name="email" required />
-  <input type="password" placeholder="Password" [(ngModel)]="user.password" name="password" required />
-  <button type="submit">Register</button>
-</form>
-<p>{{ message }}</p>
+<div class="register-container">
+  <h2>Create an Account</h2>
+  
+  <form (ngSubmit)="onSubmit()" class="register-form">
+    <div class="form-group">
+      <input type="text" placeholder="Full Name" [(ngModel)]="user.name" name="name" required />
+    </div>
+
+    <div class="form-group">
+      <input type="email" placeholder="Email Address" [(ngModel)]="user.email" name="email" required />
+    </div>
+
+    <div class="form-group">
+      <input type="password" placeholder="Password" [(ngModel)]="user.password" name="password" required />
+    </div>
+
+    <button type="submit" class="register-btn">Register</button>
+  </form>
+
+  <p class="message">{{ message }}</p>
+
+  <p class="login-redirect">
+    Already have an account? <a routerLink="/login">Login here</a>
+  </p>
+</div>
+
 

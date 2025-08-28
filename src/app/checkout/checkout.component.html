@@ -1,8 +1,8 @@
-<h2>Checkout</h2>
+<h2 class="checkout-title">Checkout</h2>
 
 <div class="checkout-container">
   <div class="billing-section">
-    <h3>Billing Details</h3>
+    <h2>Billing Details</h2>
     <form>
       <input type="text" placeholder="Full Name" [(ngModel)]="customer.name" name="name" required />
       <input type="email" placeholder="Email" [(ngModel)]="customer.email" name="email" />
@@ -12,7 +12,7 @@
   </div>
 
   <div class="order-summary">
-    <h3>Order Summary</h3>
+    <h2>Order Summary</h2>
     <div *ngFor="let item of cartItems" class="order-item">
       <span>{{ item.name }} (x{{ item.quantity }})</span>
       <span>₹{{ item.price * item.quantity }}</span>

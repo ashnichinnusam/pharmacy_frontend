@@ -12,13 +12,12 @@ import { ProductService, Product } from '../services/product.service';
 })
 export class HomeComponent {
   featuredProducts: Product[] = [];
-  newArrivals: Product[] = [];
 
   constructor(private productService: ProductService) {
     this.featuredProducts = this.productService.getFeaturedProducts();
-    this.newArrivals = this.productService.getNewArrivals();
   }
 }
+
 
 
 
