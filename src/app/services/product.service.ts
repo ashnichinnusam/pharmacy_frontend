@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 export interface Product {
   _id: number;
@@ -37,4 +39,11 @@ export class ProductService {
   getAllProducts(): Product[] {
     return this.products;
   }
+
+  constructor(private http: HttpClient) { }
+
+  getProducts() {
+  return this.http.get(`${environment.apiUrl}/products`);
 }
+}
+
