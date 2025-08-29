@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { RouterOutlet, RouterLink, RouterLinkActive, Router } from '@angular/router';
+import { RouterOutlet, RouterLink, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, RouterLink, RouterLinkActive], 
+  imports: [CommonModule, RouterOutlet, RouterLink], 
   template: `
   <nav class="navbar navbar-expand-lg navbar-light shadow-sm" style="background-color: #f8f9fa;">
     <div class="container">
