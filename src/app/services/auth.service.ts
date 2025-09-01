@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  private apiUrl = 'https://pharmacy-backend-1-x5mn.onrender.com/api'; // backend URL
+  private apiUrl = 'https://pharmacy-backend-1-x5mn.onrender.com/api/auth'; // backend URL
   private tokenKey = 'auth_token'; // key to store token in localStorage
 
   constructor(private http: HttpClient) {}
