@@ -3,11 +3,12 @@ import { RouterOutlet, RouterLink, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { AuthService } from './services/auth.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, RouterLink,HttpClientModule], 
+  imports: [CommonModule, RouterOutlet, RouterLink,HttpClientModule,RouterModule], 
   template: `
   <nav class="navbar navbar-expand-lg navbar-light shadow-sm" style="background-color: #f8f9fa;">
     <div class="container">
