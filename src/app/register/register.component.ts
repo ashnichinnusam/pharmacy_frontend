@@ -17,10 +17,16 @@ export class RegisterComponent {
   constructor(private authService: AuthService) {}
 
   onSubmit() {
-    this.authService.register(this.user).subscribe({
-      next: () => this.message = 'Registration successful!',
-      error: () => this.message = 'Registration failed!'
-    });
-  }
+  this.authService.register(this.user).subscribe({
+    next: (response: any) => {
+      this.message = response?.message || 'Registration successful!';
+    },
+    error: (err) => {
+      console.error('Registration error:', err);
+      this.message = err.error?.message || 'Registration failed!';
+    }
+  });
+}
+
 }
 
